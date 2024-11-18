@@ -42,7 +42,7 @@ int main() {
         }
         //printf("miscitaofvh\n");
         wait(NULL);
-        munmap(shared_memory, sizeof(int));
+        munmap(shared_memory, 10);
         printf("Producer stopped.\n");
     } else {
         int total = 0;
@@ -66,7 +66,7 @@ int main() {
             *shared_memory = 0;   
         }
 
-        munmap(shared_memory, sizeof(int));
+        munmap(shared_memory, 10);
         printf("Consumer stopped.\n");
     }
 
