@@ -52,10 +52,9 @@ int main() {
             }
 
             int value = *shared_memory;
-            *shared_memory = 0;      
+               
             printf("Consumer consumed: %d\n", value);
             total += value;
-
             printf("Consumer total: %d\n", total);
             printf("----------------\n");
             if (total > 100) {
@@ -63,6 +62,8 @@ int main() {
                 *shared_memory = -1;
                 break;
             }
+            
+            *shared_memory = 0;   
         }
 
         munmap(shared_memory, sizeof(int));
